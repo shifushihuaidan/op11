@@ -1,0 +1,7 @@
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\bin\Debug\读写文件1.exe
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\bin\Debug\读写文件1.pdb
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\obj\x86\Debug\读写文件1.Form1.resources
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\obj\x86\Debug\读写文件1.Properties.Resources.resources
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\obj\x86\Debug\读写文件1.csproj.GenerateResource.Cache
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\obj\x86\Debug\读写文件1.exe
+E:\C++编程学习\00C#课程相关\读写文件1\读写文件1\obj\x86\Debug\读写文件1.pdb

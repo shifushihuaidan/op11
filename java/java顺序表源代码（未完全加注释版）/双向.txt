@@ -1,0 +1,66 @@
+import java.util.Scanner;
+class DbcLinkedList
+{
+	private class Node//链表的结点
+	{
+		Node pre; //指向前一个节点
+		Node next; //指向后一个节点
+		int value;  //当前节点的值
+		public Node(int value, Node next, Node pre)
+		{
+			this.value = value;
+			this.next = next;
+			this.pre = pre;
+		}
+	}
+	private Node head;  //定义头节点
+	private int size;  //定义链表的长度
+	public DbcLinkedList()//初始化，一开始头结点，长度为零
+	{
+		head=new Node(0,null,null);
+		head.pre=head.next=head;
+		size=0;
+	}
+	public void add(int i,int value)//在第i之前加入一个元素
+	{
+		
+	}
+	public void del(int value)//删除指定元素值的结点
+	{
+		
+	}
+	public void show()//输出所有元素
+	{
+		
+	}
+	private Node entry(int i) //循环到i处
+    {  
+        if(i < 0 || i >= this.size)  
+        {  
+            throw new IndexOutOfBoundsException("越界了");  
+        }  
+        Node p = this.head;  
+        if(i < (this.size/2))  
+        {  
+            for(int j=0; j<=i; j++)  
+            {  
+                p = p.next;  
+            }  
+        }  
+        else  
+        {  
+            for(int j=this.size-1; j>=i; j--)  
+            {  
+                p = p.pre;  
+            }  
+        }  
+        return p;  
+    }  
+}
+public class Test
+{
+	public static void main(String args[])
+	{
+		DbcLinkedList aa=new DbcLinkedList(); 
+	}
+}

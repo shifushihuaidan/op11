@@ -1,0 +1,87 @@
+与委托和事件有关的东西：
+
+回调函数是一个程序员不能显式调用的函数；通过将回调函数的地址传给调用者
+
+从而实现调用。回调函数使用是必要的，在我们想通过一个统一接口实现不同
+
+的内容，这时用回掉函数非常合适。
+
+  比如，我们为几个不同的设备分别写了不同的显示函数:
+void TVshow(); void ComputerShow(); void NoteBookShow()...等等。
+  这是我们想用一个统一的显示函数，我们这时就可以用回掉函数了。
+void show(void (*ptr)()); 使用时根据所传入的参数不同而调用不同的回调函数。  
+
+
+
+// 定义委托
+	public delegate void MeDelegate();
+// 定义事件
+	public event MeDelegate NotifyEveryOne;
+
+说委托实际上是一个类，在我们定义委托的时候：
+
+public delegate void GreetingDelegate(string name);
+
+当编译器遇到这段代码的时候，会生成下面这样一个完整的类：
+
+public sealed class GreetingDelegate:System.MulticastDelegate{
+    public GreetingDelegate(object @object, IntPtr method);
+    public virtual IAsyncResult BeginInvoke(string name, AsyncCallback callback, object @object);
+    public virtual void EndInvoke(IAsyncResult result);
+    public virtual void Invoke(string name);
+}
+
+事件其实没什么不好理解的，
+
+声明一个事件不过类似于
+
+声明一个封装了委托类型变量的东西而已。
+
+
+Event出场了，它封装了委托类型的变量，使得：在类的内部，不管你声明它是public还是protected，它总是private的。在类的外部，注册“+=”和注销“-=”的访问限定符与你在声明事件时使用的访问符相同。
+
+际上尽管我们在GreetingManager里将 MakeGreet(事件) 声明为public，但是，实际上MakeGreet会被编译成 私有字段，难怪会发生上面的编译错误了，因为它根本就不允许在GreetingManager类的外面以赋值的方式访问
+
+
+
+
+精华：
+
+委托和事件就类似于字段和属性的关系，事件是对委托做了一个封装
+
+
+下面先看下什么是伪造事件。
+在一个类中我们定义一个委托，把它做公有类型。如下：
+
+
+
+public delegate void DelDbClick();
+public DelDbClick delDbClick;
+
+
+那么，外部的一个类，可以做一个方法，把这个委托设置成NULL（清除监听），也可以主动触发这个委托所关联的事件（假冒事件）。这种时候就可以造成“伪造事件”。
+这个时候，我们可以用事件来对它进行包装，以消除上面的这两种情况。
+
+
+复制代码
+
+public delegate void DelDbClick();
+        private DelDbClick delDbClick;
+
+        public event DelDbClick AddEvent
+        {
+            add
+            {
+                delDbClick += value;
+            }
+            remove
+            {
+                delDbClick -= value;
+            }
+        }
+
+复制代码
+
+像这样，把委托定义成私有的，然后定义一个这个委托类型的事件来把它向外开放。那么外部就既不能直接把委托设置成NULL，也不能直接调用委托了。
+当然，我们可以直接写一个方法来做这种包装，就象用属性来包装私有字段一样，但这样定起来更简单。
+
