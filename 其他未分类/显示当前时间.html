@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+function st()
+{
+var to=new Date();
+var h=to.getHours();
+var m=to.getMinutes();
+var s=to.getSeconds();
+document.getElementById('a1').innerHTML=h+":"+m+":"+s;
+t=setTimeout(st,500);
+}
+/*function ch(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i;
+}*/
+</script>
+</head>
+<body onload="st()">
+<div id="a1"></div>
+</body>
+</html>

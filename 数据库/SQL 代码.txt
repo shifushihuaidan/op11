@@ -1,0 +1,23 @@
+use factory
+--增加等级
+alter table op.job
+add jobji int;
+--插入数据，记住要把这些名字改下，我写的全鱼海贼王有关
+insert into op.employ values ('123456','路飞','男','2013-10-12','搬砖',1838240,6228808)
+insert into op.employ values ('123457','索隆','男','2013-11-12','抬钢筋',1838241,6228809)
+select * from op.employ
+insert into op.department values ('123678','混泥','搞混泥土的')
+insert into op.department values ('123688','切砖','切砖的')
+select * from op.department
+insert into op.job values ('654321','混泥',1)
+insert into op.job values ('654322','切砖',3)
+select * from op.job
+insert into op.factoryDescriptin values ('123456','123678','654321')
+insert into op.factoryDescriptin values ('123457','123688','654322')
+select * from op.factoryDescriptin
+--修改三级岗位说明
+update op.job set jobDescription='海贼' where jobji=3
+select * from op.job
+--删除男员工
+--先断开连接,在执行这句
+delete from op.employ where employsex='男'

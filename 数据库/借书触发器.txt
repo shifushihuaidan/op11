@@ -1,0 +1,31 @@
+use lib
+go
+create trigger ibbook--定义借书触发器
+on bbook
+for insert
+as
+if((select jieshuliang from reader a,inserted b --如果该读者未借满5本书
+where a.rid=b.rid )<5 and                      --而且，该书数量还有
+(select shuliang from book a,inserted b         --则可以借书
+where a.bid=b.bid                               --同时，book表的相应书的数量减1
+)>0)                                            --reader表的借书量家1
+begin                                           
+update book set shuliang=shuliang-1 
+where bid=(select bid from inserted)
+update reader set jieshuliang=jieshuliang+1
+where rid=(select rid from inserted)
+print '借书成功'
+end
+else if((select shuliang from book a,inserted b      --该书数量为0时，不能借书
+where a.bid=b.bid
+)=0)
+begin
+print '抱歉，该书已借完了'
+rollback transaction
+end
+else if((select jieshuliang from reader a,inserted b --如果该读者已经结了5本书未还
+where a.rid=b.rid )= 5)
+begin
+print '你已借5本书未还，不能借书'                --则不能借书
+rollback transaction
+end

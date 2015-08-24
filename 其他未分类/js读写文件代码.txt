@@ -1,0 +1,36 @@
+<html>
+<head>
+
+</head>
+<body >
+<script type="text/javascript">
+	/*var fso,tf;
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	tf = fso.CreateTextFile("D:/海贼王html5练习/a.txt",true);
+	tf.WriteLine("Testing 1,2,3.");
+	tf.writeBlankLines(3);
+	tf.Write("This is a test.");
+	tf.Close();
+	alert("文件写入成功！");
+        var s = tf.Read();
+        alert(s);
+tf.Close();*/
+var fso=new ActiveXObject("Scripting.FileSystemObject"); 
+// 打开文件 
+var ts = fso.OpenTextFile("D:/海贼王html5练习/a.txt", 1);  //1表示只读
+
+//遍历读取
+
+while (!ts.AtEndOfStream)
+ {
+      s = ts.Readline();
+
+      alert(s);
+
+} 
+
+ts.Close();
+</script>
+
+</body>
+</html>

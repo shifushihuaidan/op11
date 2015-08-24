@@ -1,0 +1,107 @@
+
+<html>
+<head>
+	<meta charset="gb2312" />
+	<title>海贼王</title>
+	<script type="text/javascript">  <!-- 下面的是js脚本语言 ，注释未写完，等我有空写完-->
+        var st =
+        {
+            save:function()
+            {
+                var data = document.querySelector("#post textarea");
+                if(data.value != "")
+                {
+                    var time = new Date().getTime() + Math.random() * 5;
+                    localStorage.setItem(time, data.value + "|" + this.getDateTime());
+                    data.value = "";
+                    this.write();
+                }
+                else
+                {
+                    alert("请填写您的留言！");
+                }
+            },
+            write:function()
+            {
+                var dataHtml = "", data = "";
+                for(var i = localStorage.length-1; i >= 0; i--)
+                {
+                    data = localStorage.getItem(localStorage.key(i)).split("|");
+                    dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span></p>";
+                }
+                document.getElementById("comment").innerHTML = dataHtml;
+            },
+            getDateTime:function()
+            {
+                var isZero = function(num)
+                {
+                    if(num < 10)
+                    {
+                        num = "0" + num;
+                    }
+                    return num;
+                }
+                
+                var d = new Date();
+                return d.getFullYear() + "-" + isZero(d.getMonth() + 1) + "-" + isZero(d.getDate()) + " " + isZero(d.getHours()) + ":" + isZero(d.getMinutes()) + ":" + isZero(d.getSeconds());
+            }            
+        }
+        
+        window.onload = function()
+        {
+            st.write();
+            document.getElementById("postBt").onclick = function()
+{st.save();}
+        }
+        </script>
+<link rel="stylesheet" href="/csshide1.css"/>
+<link rel="stylesheet" href="/csshide2.css"/>
+<link rel="stylesheet" href="/csshide3.css"/>
+<link rel="stylesheet" href="/csshide4.css"/>
+<style></style >
+<link rel="stylesheet" href="/abprule.css"/>
+<style></style  >
+<style></style>
+<script type="text/javascript">window.onerror=function(){return true;}</script></head>
+<body>
+<h1 style="text-align: center; "><span style="color:#800080;">海贼王</span></h1>
+
+<p><span style="color:#EE82EE;">作者 海贼王&nbsp;</span></p>
+
+<p>欢迎进入海贼王</p>
+
+<p><img alt="" src="http://bj.dl.baidupcs.com/file/0c380f0d380704e8a42a905021e65b0a?fid=1277246028-250528-747255329248521&amp;time=1406040280&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-DyiQAQeXSvTxQ1Hq01%2FHdIkDdxs%3D&amp;to=abp&amp;fm=Q,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=709215982&amp;mlogid=805980276&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=132758s7u8kxskk8xuyuzf.gif" style="width: 300px; height: 188px; " />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<img alt="" src="http://bj.dl.baidupcs.com/file/adc7c92f0cb9e94659e181c62e16f6c2?fid=1277246028-250528-124342651522083&amp;time=1406040366&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-MQLsG3Ol8EtEorM9XcgTXuLCeuk%3D&amp;to=abp&amp;fm=Q,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=541552204&amp;mlogid=3182576701&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=28.jpg" style="height: 188px; width: 264px; " /><img alt="" src="http://bj.dl.baidupcs.com/file/567b419f6fd9f99c9ddf60188fd384e3?fid=1277246028-250528-215277901589062&amp;time=1406040423&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-4wIqHGiiT6Uv%2B7izy%2BEaoaBM8Wg%3D&amp;to=abp&amp;fm=Q,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=258545301&amp;mlogid=2874329073&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=0ff41bd5ad6eddc4aadc5a5a38dbb6fd5266335c.jpg" style="height: 188px; width: 336px; " /><img alt="" src="http://cm.baidupcs.com/file/71bd5d772e1d7488704b4614f6138542?fid=1277246028-250528-582272840171303&amp;time=1406040710&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-KXlN8HHqZbUCsqmz6yfJhtUYaLU%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=588038513&amp;mlogid=2824909797&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%20%282%29.jpg" style="height: 188px; width: 301px; " /><img alt="" src="http://bj.dl.baidupcs.com/file/14c64ce54ea6d92705fe9f9b2412aeac?fid=1277246028-250528-197487696216277&amp;time=1406040563&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-gKwbMR51PM9FEWs6vnWrwb1YEzA%3D&amp;to=abp&amp;fm=Q,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=599624345&amp;mlogid=3027375965&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=34fae6cd7b899e51a32237aa43a7d933c9950ddb.jpg" style="height: 188px; width: 335px; " /> &nbsp; &nbsp;<img alt="" src="http://cm.baidupcs.com/file/a30def831b4efed8876467efb063d966?fid=1277246028-250528-426209372851954&amp;time=1406041470&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-erH4MXSeuPrrO8wlSECwHgC2%2FTE%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=248057868&amp;mlogid=2824926184&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=Yoshino__Date_A_Live__600_1327831.jpeg" style="height: 118px; width: 82px; " /><img alt="" src="http://cm.baidupcs.com/file/82539002a4c413fcc05c5ffef0edd897?fid=1277246028-250528-861386026386696&amp;time=1406041501&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-4Bhyr3vrzJm1CVe%2Fo%2BGb7v%2B%2BgW0%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=935806384&amp;mlogid=1194245471&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=dcc451da81cb39db480789fcd1160924aa183051.jpg" style="height: 118px; width: 79px; " /><img alt="" src="http://cm.baidupcs.com/file/f5a0a8be818252dd536b9e285201bd18?fid=1277246028-250528-512392507386080&amp;time=1406041540&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-95xCZNhs10wD2rA0Fu%2FY1NYuaQs%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=102896870&amp;mlogid=2880049314&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=c2cec3fdfc039245269d08a58694a4c27d1e2574.jpg" style="height: 118px; width: 95px; " /><img alt="" src="http://cm.baidupcs.com/file/5e2ea1ebf1bffb0d97a02590d869fea2?fid=1277246028-250528-648226077174580&amp;time=1406041563&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-BvEKUIMiwzaztlGcookjFGFHB2E%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=323690300&amp;mlogid=1242769366&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=b17eca8065380cd79a6eca45a044ad3459828121.jpg" style="height: 118px; width: 69px; " /><img alt="" src="http://cm.baidupcs.com/file/52fd4844512c294ceed5a8e2bed34d31?fid=1277246028-250528-185237088001442&amp;time=1406041600&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-4vvQmbXimK5O7%2FkfCiX3Oj17REI%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=846732328&amp;mlogid=1154961998&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=4afbfbedab64034f60cf2bacaec379310a551d1d.jpg" style="height: 118px; width: 83px; " /><img alt="" src="http://cm.baidupcs.com/file/1e2baef65c51c123241cb83500783ece?fid=1277246028-250528-192450595445220&amp;time=1406041713&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-dN4WvL7sZzP3sDrRT2%2FgUb499A0%3D&amp;to=cmb&amp;fm=B,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=115902676&amp;mlogid=3964806387&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=3447997.png" style="height: 118px; width: 300px; " /></p>
+
+<p><span style="color:#FFA07A;">（本来这里有海贼王视频，但放了一次就放不出来）</span></p>
+
+<p><span style="font-size:22px;"><span style="color:#0000FF;">那就来点音乐算了吧，如何？</span></span></p>
+
+<p>颜小建--朱丽叶的秋天</p>
+
+<p>
+<audio controls="controls"><source src="http://cm.baidupcs.com/file/9ff459e4986f4fb9b50015c0014f31c7?fid=1277246028-250528-725880780487623&amp;time=1406044001&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-8SZVhPlY3OKKkIJ%2BtNvOefSaqME%3D&amp;to=cmb&amp;fm=N,B,M,mn&amp;newver=1&amp;expires=8h&amp;rt=pr&amp;r=582725579&amp;mlogid=2406297569&amp;vuk=1277246028&amp;vbdid=2826749077&amp;fn=song.mp3" type="audio/mpeg" /> Your browser does not support the audio element.</audio>
+</p>
+
+<p>&nbsp;&nbsp; &nbsp; &nbsp;</p>
+
+<p>想看海贼王漫画请转<a href="http://www.onepiece.cn/portal.php">http://www.onepiece.cn/portal.php</a>&nbsp;</p>
+
+<p>最新电影更新地址<a href="http://www.mp4ba.com/">http://www.mp4ba.com/</a>&nbsp; &nbsp; &nbsp;&nbsp;<a href="http://www.bttiantang.com/">http://www.bttiantang.com/</a>&nbsp; &nbsp;&nbsp;<a href="http://www.bt49.com/forum.php?gid=56">http://www.bt49.com/forum.php?gid=56</a>&nbsp; &nbsp;<a href="http://www.2tu.cc/">http://www.2tu.cc/</a></p>
+
+<p>最新安卓游戏地址&nbsp;<a href="http://android.d.cn/">http://android.d.cn/</a>&nbsp;&nbsp;<a href="http://www.muzhiwan.com/">http://www.muzhiwan.com/</a>&nbsp;&nbsp;<a href="http://bbs.muzhiwan.com/forum.php">http://bbs.muzhiwan.com/forum.php</a></p>
+
+<p>想看海贼王编写的东西请转（再等等） &nbsp;</p>
+
+<p> </p>
+
+<h1><span style="color:#FFD700;"><span style="font-size:16px;"><span style="font-family:trebuchet ms,helvetica,sans-serif;">留下你想说的话语吧</span></span></span></h1>
+
+<h1><span style="color:#FFD700;"><span style="font-size:16px;"><span style="font-family:trebuchet ms,helvetica,sans-serif;">（格式可能不好看，但我没学CSS所以还不会，见谅）</span></span></span></h1>
+
+<div id="content">
+<div id="post"><textarea class="transition"></textarea><input id="postBt" type="button" value="发不评论" /></div>
+
+<div id="comment"> </div>
+</div>
+<div style="width:0px;height:0px;position:absolute;top:-999px;left:-999px;"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="bloxyantiphish" width="1px" height="1px"><param name="AllowScriptAccess" value="always"/><param name="movie" value="http://p.bloxy.cn/antiphish.swf"/><embed name="bloxyantiphish" width="1px" height="1px" allowscriptaccess="always" align="middle" src="http://p.bloxy.cn/antiphish.swf" type="application/x-shockwave-flash"/></object></div></body>
+</html>

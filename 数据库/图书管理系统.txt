@@ -1,0 +1,47 @@
+use lib
+go
+create table yonghu
+(
+id varchar(20)
+primary key,
+mima varchar(20)
+)
+create table book      --图书表
+(
+bid int  identity(1,1) --图书编号，自动生成，主键
+primary key,
+bname varchar(20),     --图书名字
+chubanshe varchar(20), --图书出版社
+writer varchar(20),    --作者
+price int,             --价格
+shuliang int,          --数量
+maxsl int              
+)
+create table reader    --读者表
+(
+rid int identity(11,1) --读者编号，自动生成，主键 
+primary key,
+rname varchar(20),     --读者名字
+sex varchar(4),        --读者性别
+old int,               --读者年龄
+zhiye varchar(20),     --作者职业
+jieshuliang int default 0 ,      --借书量,默认值为0
+check (sex in ('男','女'))
+)
+create table bbook     --借阅归还表
+(
+bid int,               --书编号
+rid int,               --读者编号
+jssj date default getdate(),--借阅时间，默认值为系统当前时间
+ghsj date,             --归还时间
+fakuan int default 0,  --罚款
+primary key(bid,rid),  --书编号，读者编号作为主键
+foreign key(bid)       --书编号做外键，并设置级联
+references book(bid)   
+on update cascade
+on delete cascade,
+foreign key(rid)       --读者编号做外键，并设置级联
+references reader(rid)
+on update cascade
+on delete cascade,
+)

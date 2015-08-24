@@ -1,0 +1,31 @@
+use lib
+go
+create trigger dbbook--定义还书触发器
+on bbook
+for delete
+as
+if((select 30*month(ghsj)+DAY(ghsj)- --判断读者是否超期了
+(30*month(jssj)+DAY(jssj))           --吵了，就按每天2元收费
+from deleted)>30
+)
+begin
+select rid,
+2*(select 30*month(ghsj)+DAY(ghsj)-   
+(30*month(jssj)+DAY(jssj))
+from deleted)
+应交罚款
+from deleted
+update book set shuliang=shuliang+1 
+where bid=(select bid from deleted)
+update reader set jieshuliang=jieshuliang-1
+where rid=(select rid from deleted)
+print '还书成功，但要交罚款'
+end
+else
+begin
+update book set shuliang=shuliang+1 
+where bid=(select bid from deleted)
+update reader set jieshuliang=jieshuliang-1
+where rid=(select rid from deleted)
+print '还书成功，不用交罚款'
+end

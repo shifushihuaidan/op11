@@ -1,0 +1,118 @@
+<html>
+<head>
+<!--
+本页面是实现下拉菜单的
+作者 海贼王
+世间 2014年10月28日
+加了注释的
+-->
+<style type="text/css">
+    #a1     /*css 设值ul和div的样式*/
+	{
+		background-color:#F4F4F4;/*设置背景颜色*/
+		width: 480px;/*设置宽度*/
+		height:23px;/*设置高度*/
+	}
+	#a1 li/*去掉ul列表中的表项li前面的圆点*/
+	{
+		list-style:none;
+		float:left;/*让列表项横着放*/
+		margin:0 10;
+	}
+	#a1 a
+	{
+		text-decoration:none;/*去掉ul中的超链接的下划线*/
+	}
+	#a2/*设置div*/
+	{
+		position:absolute;/*绝对定位，relative相对定位
+		                  是相对于原来的位置
+		                  这个相当重要，一定要加，
+		                   不然他会改变位置
+						   让你下面的不能紧跟着上面的
+						   当然你不用他也可以，那就用浮动
+						   或者是z-index*/
+		border:1px solid red;
+		width:100;
+		height:100;
+		visibility:hidden;/*一开始讲改div隐藏*/
+	}
+	#a2 a
+	{
+        display: block;/*讲a标签转化为块级别的，
+		                 不然没发改变他们之间的间隔,
+						 这个看你们需不需要*/
+		margin:10;
+		text-decoration:none;/*去掉下划线*/
+	}
+	.a3
+	{
+		border:1px solid blue;
+		width:100;
+		height:100;
+	}
+</style>
+<script type="text/javascript">/*js函数代码*/
+	var cl=0;//定时器定时的字符串
+	var t1=600;//定时器时间600毫秒
+	var bb=0;//这个是一个变量
+	function open1(id)//讲隐藏的div显示出来
+	{
+		if(bb)
+			bb.style.visibility='hidden';//隐藏
+		bb=document.getElementById(id)//通过id来找到该div
+		bb.style.visibility='visible';//显示
+	}
+	function close()//隐藏div
+	{
+		if(bb)
+		bb.style.visibility='hidden';//影藏div
+	}
+	function closetime()//设置定时器，
+	{
+		cl = window.setTimeout(close, t1);//意思是600毫秒后
+		                                 //去调用函数close
+		//但这600毫秒程序不会等待，
+		//会继续执行setTimeout后面的代码  
+	}
+	function clodetime()//取消定时器
+	{
+		if(cl)
+		{
+			window.clearTimeout(cl);
+			//取消由setTimeout()方法设置的定时器。
+			cl = 0;
+		}
+	}
+	document.onclick=close;//在页面任意一个地方点击，就会调用函数close
+</script>
+</head>
+<body>
+<ul id="a1">
+		<!--   
+		onmouseover是一个事件，就是当鼠标移动到该超链接上面时，
+		调用函数open1（），显示隐藏的div
+		onmouseout是一个事件，就是当鼠标移开该超链接上面时，
+		调用函数closetime（），隐藏显示的div
+		-->
+	<li><a href="#" onmouseover="open1('a2')"
+	onmouseout="closetime()"
+	>设置</a>
+	<div id="a2" onmouseover="clodetime()"
+	onmouseout="closetime()"
+	>
+		<a href="#">管理员设置</a>
+		<a href="#">书本设置</a>
+		<a href="#">列表设置</a>
+	</div>
+	</li>
+	<li><a href="#">测试</a></li>
+</ul>
+<div class="a3">
+	你是谁啊<br/>
+	你管我是谁
+    <br/> 
+	就是
+</div>
+</body>
+</html>

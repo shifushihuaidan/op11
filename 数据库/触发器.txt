@@ -1,0 +1,26 @@
+create trigger dbook--定义删除图书触发器
+on book
+for delete
+as
+if((select shuliang from deleted)
+<(select maxsl from deleted))
+begin
+print '该书已借出，不能删除信息'
+rollback transaction
+end
+else
+print '删除该书信息成功'
+
+
+create trigger dreader--定义删除读者触发器
+on reader
+for delete
+as
+if((select jieshuliang from deleted)> 0)
+begin
+print '该读者还有书没还，不能删除他'
+rollback transaction
+end
+else
+print '删除该读者信息成功'
+

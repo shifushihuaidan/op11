@@ -1,0 +1,18 @@
+use lib
+go
+create trigger ubbook
+on bbook
+for update
+as
+if((select 30*month(ghsj)+DAY(ghsj)- --判断读者是否超期了
+(30*month(jssj)+DAY(jssj))           --吵了，就按每天2元收费
+from inserted)>30
+)
+begin
+update bbook  set fakuan=2*(select 30*month(ghsj)+DAY(ghsj)
+-
+(30*month(jssj)+DAY(jssj))
+from inserted)
+where bid=(select bid from inserted )
+and rid =(select rid from inserted )
+end
