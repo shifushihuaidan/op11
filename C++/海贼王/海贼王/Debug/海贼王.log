@@ -1,0 +1,27 @@
+﻿生成启动时间为 2014/4/2 12:54:17。
+     1>项目“E:\C++编程学习\海贼王\海贼王\海贼王.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\海贼王.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         E:\Program Files\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt haizei.cpp
+         haizei.cpp
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\海贼王.exe.embed.manifest.res" "Debug\海贼王_manifest.rc" 
+       Link:
+         E:\Program Files\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\C++编程学习\海贼王\Debug\海贼王.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\海贼王.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\C++编程学习\海贼王\Debug\海贼王.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\C++编程学习\海贼王\Debug\海贼王.lib" /MACHINE:X86 "Debug\海贼王.exe.embed.manifest.res"
+         Debug\haizei.obj
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\海贼王.exe.embed.manifest" /manifest "Debug\海贼王.exe.intermediate.manifest"
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\海贼王.exe.embed.manifest.res" "Debug\海贼王_manifest.rc" 
+       LinkEmbedManifest:
+         E:\Program Files\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\C++编程学习\海贼王\Debug\海贼王.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\海贼王.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\C++编程学习\海贼王\Debug\海贼王.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\C++编程学习\海贼王\Debug\海贼王.lib" /MACHINE:X86 "Debug\海贼王.exe.embed.manifest.res"
+         Debug\haizei.obj
+         海贼王.vcxproj -> E:\C++编程学习\海贼王\Debug\海贼王.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\海贼王.unsuccessfulbuild”。
+         正在对“Debug\海贼王.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\C++编程学习\海贼王\海贼王\海贼王.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.17
