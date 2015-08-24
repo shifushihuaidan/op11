@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+var http_request=null;
+function fun1(){
+//alert('这里来了');
+ var re=null;
+//1，创建ajax对象，XMLHttpResquest
+    if(window.ActiveXObject)
+	{
+		http_request=new ActiveXObject("Microsoft.XMLHTTP");//ie7以下的浏览器
+	}
+	else 
+	{
+		http_request=new XMLHttpRequest();
+	}
+    alert('这里来了1');
+	var url="chkname.php?user=张三"; 
+	//alert(http_request.readyState);
+    http_request.onreadystatechange=function()
+    {
+		if(http_request.readyState==4)
+			{
+				if(http_request.status==200)
+				{
+				var res=http_request.responseText;
+				alert('结果为'+res)
+				}
+			}
+	}
+   http_request.open("GET",url,true);
+   http_request.send();
+}
+
+
+//-->
+</script>
+</head>
+<body>
+<div id="a1" class="">
+	111222
+</div>
+<input type="button" onclick="fun1()" value="测试">
+</body>
+</html>

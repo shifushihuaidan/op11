@@ -1,0 +1,42 @@
+<!-- 以下为分页的代码
+<?php
+
+$page=1;//这个要写在最开始，不要放在循环里面
+$ps=10;
+
+$p=($page-1)*$ps;//10表好似本页的行数
+$sql="select * from book limit ".$p.", ".$ps;
+$res=mysql_query($sql);
+if($res&&mysql_num_rows($res))
+{
+	while ($row = mysql_fetch_assoc($res)) 
+	{
+		echo "<tr>";
+		echo "<td>".$row['bid']."</td>";
+		echo "<td>".$row['bname']."</td>";
+        echo "<td>".$row['btype']."</td>";
+		echo "<td>".$row['chubanshe']."</td>";
+		echo "<td>".$row['shujia']."</td>";
+		echo "<td>".$row['shuliang']."</td>";
+?>
+<td>
+<a href="index2?aa=借书&id=<?php echo 
+$row['bid']?>&shuliang=<?php echo 
+$row['shuliang']?>">借书</a>
+</td>
+<?php
+		echo "</tr>";
+?>
+<td>
+<a href="yema.php">
+<?php
+echo $page;
+?>
+</a>
+</td>
+<?php
+	$page=$page+1;
+	}
+}
+?>
+-->

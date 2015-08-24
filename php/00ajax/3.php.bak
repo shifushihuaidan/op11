@@ -1,0 +1,14 @@
+<?php
+$b1= urlencode('路飞'); 
+$b2=urlencode('索隆');
+$ab=array('c1'=>$b1,'c2'=>$b2);
+echo urldecode(json_encode($ab)); 
+?>
+<!--<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gbk" />
+</head>
+<body>
+</body>
+</html>
+-->

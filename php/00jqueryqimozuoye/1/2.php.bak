@@ -1,0 +1,8 @@
+<?php
+$name1=$_POST['name1'];
+$mima=$_POST['mima'];
+if($name1=="º£ÔôÍõ")//&&$mima=="07944")
+	echo "1";
+else
+    echo "0";
+?>

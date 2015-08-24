@@ -1,0 +1,7 @@
+<?php
+$b1=$_POST["name"];
+$b2=$_POST["age"];
+$b3=urlencode('ห๗ยก');
+$ab=array('c1'=>$b1,'c2'=>$b2,'c3'=>$b3);
+echo urldecode(json_encode($ab));
+?>

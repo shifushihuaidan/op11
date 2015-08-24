@@ -1,0 +1,74 @@
+<!--解决中文码-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript">
+function fun()
+{
+	var re=null;
+//1，创建ajax对象，XMLHttpResquest
+if(window.ActiveXObject)
+	{
+		re=new ActiveXObject("Microsoft.XMLHTTP");//ie7以下的浏览器
+	}
+	else 
+	{
+		re=new XMLHttpRequest();
+	}
+//5,写触发事件，onreadystatechange
+    re.onreadystatechange=function()
+	{
+		//6，判断请求状态，readyState
+		//alert('测试'+re.readyState);
+        if(re.readyState==4)
+		{
+            //alert('到这里了');
+			//7,判断响应状态，status
+			if(re.status==200||re.status==304)
+			{
+                //8，给出相应处理
+				//alert('2,到这里了');
+				var aa=re.responseText;
+				alert(aa);
+                document.getElementById("a1").innerHTML=aa;
+				//var obj = eval ("(" + t + ")");把t转化成json
+				//eval("var o1="+aa);
+				//var o1=eval(aa);
+				//o1=JSON.parse(aa);
+                eval("o1 = "+aa);
+				//alert('到这里了'+o1.c1);
+				alert(o1.c1);alert(o1.c2);alert(o1.c3);
+				document.getElementById("a1").innerHTML=o1.c1;
+			}
+		}
+	}
+//2,发送的地址，方式，open()
+re.open("POST","2.php",true)
+//3,设置header信息，post才需设置
+re.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+//4,正式发送请求，send();
+re.send("name=haizei&age=13");
+
+alert(reayState);
+
+
+
+}
+</script>
+<style type="text/css">
+	#a1
+	{
+	border:5px solid red;
+	height:100px;
+	width:100px;
+	margin:30 auto;
+	}
+</style>
+</head>
+<body>
+<input type="button" value="测试ajax" onclick="fun()"/>
+<div id="a1">
+	
+</div>
+</body>
+</html>

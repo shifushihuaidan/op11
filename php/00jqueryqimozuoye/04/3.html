@@ -1,0 +1,123 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript"
+src="./jquery-1.11.1.min.js">
+</script>
+<style type="text/css">
+    .a0
+	{
+		width:805;
+		height:500;
+        margin:10 auto;
+	}
+	.a1
+	{
+		/*border:1 solid red;*/
+		width:800;
+		height:50;
+	}
+	.a2
+	{
+		/*border:1 solid red;*/
+		width:800;
+		height:200;
+	}
+	.a3
+	{
+		/*border:1 solid red;*/
+		width:800;
+		height:200;
+	}
+	.a4
+	{
+		/*border:1 solid red;*/
+		width:800;
+		height:60;
+	}
+	#huo1
+	{
+		/*border:1 solid green;*/
+		width:100;
+		height:200;
+		float:left;
+	}
+	#huo2
+	{
+		/*border:1 solid green;*/
+		width:100;
+		height:200;
+		float:left;
+	}
+</style>
+</head>
+<body>
+<div class="a0">
+<div class="a1">
+	<center><font size="18" color="red">海贼王购物网站</font></center>
+</div>
+<div class="a2">
+	<div id="huo1">
+		<img src="./img/1.jpg" width="100" height="100" border="0" alt="">
+		价格<a href="#">1500</a>
+		<input type="button" id="huo11" value="购买">
+	</div>
+	<div id="huo2">
+		<img src="./img/2.jpg" width="100" height="100" border="0" alt="">
+		价格<a href="#">1400</a>
+		<input type="button" id="huo22" value="购买">
+	</div>
+</div>
+<div class="a3">
+	总金额为: <a href="#">0</a>元
+</div>
+<div class="a4">
+	<center>本系统由海贼王编写</center><br>
+	<center>姓名：白一泽 1240610927 计算机系软件技术4班</center>
+</div>
+</div>
+<script>
+<!--
+	$(function()
+	{
+		$("#huo11").bind("click",function()
+		{       var d = new Date();
+			$(".a3").append("<br/><br/>平板"+$("#huo1 a").html()+"元");
+			//alert('测试');
+			$.get("4.jsp?a="+$("#huo1 a").html()+"&b="
+                                +$(".a3 a").html()+"&c="+d.getMilliseconds()
+			,function(data1)
+			{
+				//alert('测试1结果为'+data1);
+				$(".a3 a").html(data1);
+			})
+		})
+		$("#huo22").bind("click",function()
+		{       /*var d = new Date();
+			$(".a3").append("<br/><br/>手机"+$("#huo2 a").html()+"元");
+			//alert('测试');
+			$.post("4.jsp",{
+			a:$("#huo2 a").html(),
+			b:$(".a3 a").html(),
+                        c:d.getMilliseconds()
+			},function(data1)
+			{
+				//alert('测试1结果为'+data1);
+				$(".a3 a").html(data1);
+			})*/
+                        var d = new Date();
+			$(".a3").append("<br/><br/>手机"+$("#huo2 a").html()+"元");
+			//alert('测试');
+			$.get("4.jsp?a="+$("#huo2 a").html()+"&b="
+                                +$(".a3 a").html()+"&c="+d.getMilliseconds()
+			,function(data1)
+			{
+				//alert('测试1结果为'+data1);
+				$(".a3 a").html(data1);
+			})
+		})
+	})
+//-->
+</script>    
+</body>
+</html>
