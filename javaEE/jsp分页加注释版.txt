@@ -1,0 +1,85 @@
+<%-- 
+    Document   : 2
+    Created on : 2014-12-16, 11:57:57
+    Author     : Administrator
+--%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <%
+        //加载驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        String url="jdbc:mysql://localhost:3306/xuanke";
+        String user="root";
+        String password="root";
+        //创建数据库链接对象
+        Connection con=DriverManager.getConnection(url, user, password);
+        Statement st=con.createStatement();
+        int PageSize=4; //每页显示的条数
+        int RowCount; //记录总数
+        int PageCount;//总的野数
+        int Page;//待现实的页码数
+        int i,j;//
+        String strPage = request.getParameter("page"); 
+        if (strPage==null)
+        {
+            Page = 1; 
+        } 
+        else
+        {
+            Page = Integer.parseInt(strPage); 
+            if(Page<1) Page = 1; 
+        } 
+        String sql3="select count(*) from course";//计算总记录数
+        ResultSet rs3=st.executeQuery(sql3) ; 
+        rs3.next();
+        RowCount =rs3.getInt(1); 
+        PageCount = (RowCount+PageSize-1)/PageSize; //计算总页码数  
+        if(Page>PageCount) Page = PageCount;
+        String sql4="select * from course";
+        ResultSet rs4=st.executeQuery(sql4);  
+        i = (Page-1) * PageSize; //每页的第一条
+        for(j=0;j<i;j++) rs4.next(); 
+        i = 0; 
+        while(i<PageSize && rs4.next())
+        { 
+            String cid=rs4.getString("cid");
+            String cname=rs4.getString("cname");
+            int count=rs4.getInt("count");
+%>
+        <%=cid%>&nbsp;&nbsp;<%=cname%>&nbsp;&nbsp;<%=count%>
+<br>
+<% i++; 
+        
+     } 
+%>
+
+<a href="2.jsp?page=1">首页</a>
+共<%=RowCount%>条信息
+<%=Page%>/<%=PageCount%>页 
+<%if(Page>1)
+{
+%>
+<a href="2.jsp?page=<%=Page-1%>">上一页</a>
+<%}%>  
+<%if(Page<PageCount)
+{%>
+<a href="2.jsp?page=<%=Page+1%>">下一页</a>
+<%}%>  
+<a href="2.jsp?page=<%=PageCount%>">尾页</a>
+
+<% rs4.close();
+
+%>
+    </body>
+</html>
