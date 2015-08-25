@@ -1,0 +1,4 @@
+syms x f;
+f=x+log(x);
+
+int(f,x)
