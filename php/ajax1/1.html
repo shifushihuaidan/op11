@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8"
+		/>
+		<style>
+			#a1
+			{
+				border:1 solid #99ffff;
+				width:200;
+				height: 200;
+				margin:40 auto;
+			}
+		</style>
+		<script>
+			var httpre;
+			function fun1() 
+			{
+				if(window.ActiveXObject)
+				{
+					httpre=new ActiveXObject
+					("Microsoft.XMLHTTP");
+				}
+				else
+				{
+					httpre=new XMLHttpRequest();
+				}
+				if(httpre)
+				{
+					//var url="2.php?name=海贼王";
+					//httpre.open("get",url);
+					var url="2.php";
+					httpre.open("post",url);
+					httpre.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+					//alert("这里");
+					httpre.onreadystatechange=chuli;
+					//httpre.send();
+					httpre.send("name=海贼王&mima=不说");
+				}
+			};
+			function chuli () 
+			{
+				if(httpre.readyState==4)
+				{
+					if(httpre.status==200||
+						httpre.staus==304)
+					{
+						var res=httpre.responseText;
+						alert(res);
+						
+						/*document.
+						getElementById('a1')
+						.innerHTML=res;*/
+						//try
+						//{
+						eval("o1 = "+res);
+						//}
+						//catch(e)
+						//{
+							//alert(e);
+						//}
+						//var o1=eval(res);
+						//var o1=res;
+						//var j=eval(res); 
+						
+						//alert("这里1");
+						alert(o1.c1);
+						//alert("这里");
+						alert(o1.c2);
+						alert(o1.c3);
+						alert(o1.c4);
+						document.
+						getElementById('a1')
+						.innerHTML="用户名是。"+o1.c1+"密码是。"
+						+o1.c2+"另外是。"+o1.c3+"数量。"+o1.c4;
+						
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="a1">
+			
+		</div>
+		<input type="button"
+		onclick="fun1()"
+		value="测试" />
+	</body>
+</html>

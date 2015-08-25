@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<center><h1>{$name}</h1></center>
+	</head>
+	<body>
+		{section name=s loop=$aa}
+		{$aa[s].name}---{$aa[s].says}
+		<br/>
+		<hr/>
+		{/section}
+		<hr />
+		{$na1|count_characters}
+	</body>
+</html>
